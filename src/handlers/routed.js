@@ -21,9 +21,9 @@ router.put('/editarPerfil', chequeoConexionBd,autenticoToken, editProfile )
 //------------------------------------------------------------- TURNERO
 router.post('/nuevoTurno',chequeoConexionBd, autenticoToken, newShift)
 router.delete('/eliminarTurno',chequeoConexionBd, autenticoToken, deleteShift)
-router.get('/verTurno', autenticoToken, seeShift)
-router.get('/verTurnos', autenticoToken,adminUser, seeShifts) //------------------------------>Solo el adm le pega
-//router.get('/turnoNoDisponible', autenticoToken, shiftNotAvailable)
+router.get('/verTurno', chequeoConexionBd, autenticoToken, seeShift)
+router.get('/verTurnos', chequeoConexionBd, autenticoToken,adminUser, seeShifts) //------------------------------>Solo el adm le pega
+//router.get('/turnoNoDisponible', autenticoToken,adminUse, shiftNotAvailable)
  
 module.exports = router;
 
