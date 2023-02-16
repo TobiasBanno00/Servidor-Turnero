@@ -20,6 +20,9 @@ const userSchema = mongoose.Schema({
   contraseña: {
     type: String,
     required: true
+  },
+  rol: {
+    type: String,
   }
 })
 

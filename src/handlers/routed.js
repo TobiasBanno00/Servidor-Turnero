@@ -9,6 +9,7 @@ const {deleteShift} = require("../routes/deleteShift");
 const {seeShift} = require("../routes/seeShift");
 const {seeShifts} = require("../routes/seeShifts");
 const {autenticoToken} = require("../middleware/tokenAuthenticated");
+const {adminUser} = require("../middleware/adminUser");
 const {chequeoConexionBd} = require("../middleware/dbCheck");
 
 //------------------------------------------------------------- USUARIO
@@ -21,7 +22,8 @@ router.put('/editarPerfil', chequeoConexionBd,autenticoToken, editProfile )
 router.post('/nuevoTurno',chequeoConexionBd, autenticoToken, newShift)
 router.delete('/eliminarTurno',chequeoConexionBd, autenticoToken, deleteShift)
 router.get('/verTurno', autenticoToken, seeShift)
-router.get('/verTurnos', autenticoToken, seeShifts)
+router.get('/verTurnos', autenticoToken,adminUser, seeShifts) //------------------------------>Solo el adm le pega
+//router.get('/turnoNoDisponible', autenticoToken, shiftNotAvailable)
  
 module.exports = router;
 
